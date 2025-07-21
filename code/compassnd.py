@@ -1,6 +1,6 @@
 """Load COMPASS-ND data and extract demographic information.
 
-Author: Natasha Clarke; last edit 2024-03-05
+Author: Natasha Clarke; last edit 2025-07-21
 
 All input stored in `data/compassnd` folder. The content of `data` is not
 included in the repository.
@@ -140,10 +140,10 @@ def process_data(metadata):
     qc_pheno_df = merge_cross_sectional(qc_df_filtered, pheno_df)
 
     # Output tsv file
-    qc_pheno_df.to_csv(output_p / "compassnd_qc_pheno.tsv", sep="\t", index=False)
+    qc_pheno_df.to_csv(output_p / "participants.tsv", sep="\t", index=False)
 
     # Output metadata to json
-    with open(output_p / "compassnd_pheno.json", "w") as f:
+    with open(output_p / "compassnd_metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
 
     print(f"Data and metadata have been processed and output to {output_p}")
